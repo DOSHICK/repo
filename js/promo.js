@@ -28,7 +28,16 @@ for (let index = 0; index < promoBtns.length; index++) {
   // }
 
   promoBtns[index].addEventListener('click', function () {
-    document.execCommand(promoArray[index].coupon);
+    navigator.clipboard
+      .writeText(`${promoArray[index].coupon}`)
+      .then(() => {
+        // Успех!
+        console.log('all Rigth')
+      })
+      .catch(() => {
+        // Неудача :(
+        console.log('notall Rigth')
+      });
   });
 }
 
